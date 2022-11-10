@@ -24,6 +24,6 @@ solc --abi --bin ./contracts/SingletonNFT.sol -o build ..=.. --overwrite --allow
 
 ## Generating GO
 ```
-abigen --abi="build/FactoryNFT.abi" --pkg=FactoryNFT --out="./go/FactoryNFT.go"
-abigen --abi="build/SingletonNFT.abi" --pkg=SingletonNFT --out="./go/SingletonNFT.go"
+abigen --abi="build/FactoryNFT.abi" --pkg=FactoryNFT --out="./go/FactoryNFT/FactoryNFT.go"
+abigen --abi="build/SingletonNFT.abi" --pkg=SingletonNFT --out="./go/SingletonNFT/SingletonNFT.go"
 ```
