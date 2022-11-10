@@ -1,12 +1,15 @@
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
+
+// in-direct imports
 import "./SampleNFT.sol";
 import "./SingletonNFT.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-
+// direct imports
+//import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 contract FactoryNFT is Ownable {
 
