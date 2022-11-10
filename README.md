@@ -1,2 +1,13 @@
-# TelegramNFT-Wizard-Contracts
+# Telegram NFT Wizard
+
 Smart contracts for Telegram NFT-Wizard bot
+
+Try running some of the following tasks:
+
+```shell
+npx hardhat help
+npx hardhat test
+REPORT_GAS=true npx hardhat test
+npx hardhat node
+npx hardhat run scripts/deploy.ts
+```
