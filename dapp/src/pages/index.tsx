@@ -6,6 +6,7 @@ import { Text, Button } from '@chakra-ui/react'
 import { useState, useEffect} from 'react'
 import {ethers} from "ethers"
 import CreateItemSingletonTG from '../components/createItemSingleton'
+import CreateCollectionTG from '../components/deployCollection'
 
 
 declare let window:any
@@ -93,7 +94,14 @@ const Home: NextPage = () => {
         <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Add Item to Singelton collection</Heading>
           <CreateItemSingletonTG 
-            addressContract='0x05044C88AB66a058D523038039d64cd101b9D8c9'
+            addressContract='0x2fA1Fea6C85A9ed066039334CAAE98F06A531CE9'
+            currentAccount={currentAccount}
+          />
+        </Box> 
+        <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+          <Heading my={4}  fontSize='xl'>Create New Collection</Heading>
+          <CreateCollectionTG 
+            addressContract='0xaB822DB04Ab32f4fAe8DaA54D5d5CE035065375b'
             currentAccount={currentAccount}
           />
         </Box> 

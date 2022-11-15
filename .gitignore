@@ -1,3 +1,7 @@
+# Secrets
+./secret.json
+/secret.json
+
 # Logs
 logs
 *.log

@@ -14,12 +14,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract FactoryNFT is Ownable {
 
 
-address payable treasure_fund;
-address singleton_nft;
+address payable public treasure_fund;
+//address singleton_nft;
 
-constructor(address singleton_collection) {
+constructor() {
     treasure_fund = payable(msg.sender);
-    singleton_nft = singleton_collection;
+    //singleton_nft = singleton_collection;
 }
 
 

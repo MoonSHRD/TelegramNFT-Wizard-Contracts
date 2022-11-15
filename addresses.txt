@@ -1,0 +1,2 @@
+Singleton Collection deployed to: 0x2fA1Fea6C85A9ed066039334CAAE98F06A531CE9
+Factory NFT deployed to: 0xaB822DB04Ab32f4fAe8DaA54D5d5CE035065375b
