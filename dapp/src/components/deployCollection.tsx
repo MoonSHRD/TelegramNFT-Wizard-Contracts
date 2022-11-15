@@ -25,15 +25,16 @@ export default function CreateCollectionTG(props:Props){
   var [symbol, setSymbol] = useState<string|null>("")
   var [file_ids, setFileIds] = useState<string[]>()
   const router = useRouter();
+  const x = router.query.file_id;
+
+  if (Array.isArray(x)) {
+      setFileIds(x);
+  }
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
-    const x = router.query.file_id;
 
-    if (Array.isArray(x)) {
-        setFileIds(x);
-    }
 
   //var id = queryParams.get('user_tg_id');   // get id as string from query
   //let int_id : number = +id;                // similar to parseInt()
@@ -78,9 +79,11 @@ export default function CreateCollectionTG(props:Props){
     <form onSubmit={createCollection}>
     <FormControl>
       <FormLabel htmlFor='FileID'>CollectionData: </FormLabel>
+      <div>
       <Text><b>Name of collection</b>:{name}</Text>
       <Text><b>Symbol of collection</b>:{symbol}</Text>
       <Text><b>File ids array</b>:{file_ids}</Text>
+      </div>
       <Button type="submit" isDisabled={!currentAccount}>Create NFT!</Button>
     </FormControl>
     </form>

@@ -62,7 +62,9 @@ export default function CreateItemSingletonTG(props:Props){
     <form onSubmit={createItemSingleton}>
     <FormControl>
       <FormLabel htmlFor='FileID'>Unique File ID: </FormLabel>
+      <div>
       <Text><b>Unique File id</b>:{file_id}</Text>
+      </div>
       <Button type="submit" isDisabled={!currentAccount}>Create NFT!</Button>
     </FormControl>
     </form>
