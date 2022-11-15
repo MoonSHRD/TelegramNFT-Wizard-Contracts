@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {Button, Input , NumberInput,  NumberInputField,  FormControl,  FormLabel } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import {Button, Input , NumberInput,  NumberInputField,  FormControl,  FormLabel, Text } from '@chakra-ui/react'
 import {ethers} from 'ethers'
 import {parseEther } from 'ethers/lib/utils'
 import {abi} from '../../../artifacts/contracts/FactoryNFT.sol/FactoryNFT.json'
@@ -18,26 +19,36 @@ declare let window: any;
 export default function CreateCollectionTG(props:Props){
   const addressContract = props.addressContract
   const currentAccount = props.currentAccount
-  //var [user_id, setUserId] = useState(0)
-  //var [user_name, setUserName] = useState<string>("")
-  var [file_id, setFileId] = useState<string|null>("")
-  var [name, setName] = useState<string>("")
-  var [symbol, setSymbol] = useState<string>("")
+
+  //var [file_id, setFileId] = useState<string|null>("")
+  var [name, setName] = useState<string|null>("")
+  var [symbol, setSymbol] = useState<string|null>("")
   var [file_ids, setFileIds] = useState<string[]>()
+  const router = useRouter();
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+    
+    const x = router.query.file_id;
+
+    if (Array.isArray(x)) {
+        setFileIds(x);
+    }
 
   //var id = queryParams.get('user_tg_id');   // get id as string from query
   //let int_id : number = +id;                // similar to parseInt()
   //var name = queryParams.get('user_tg_name');
+
+  var name_q = queryParams.get('name');
+  var symbol_q = queryParams.get('symbol');
+  setName(name_q);
+  setSymbol(symbol_q);
+
   
   //var file_id_param = queryParams.get('file_id');
   //var file_id_param_string = file_id_param?.toString
   //setFileId(file_id_param);
 
-  //setUserId(int_id);
-  //setUserName(name);
   
   }, []);
   
@@ -66,9 +77,10 @@ export default function CreateCollectionTG(props:Props){
   return (
     <form onSubmit={createCollection}>
     <FormControl>
-      <FormLabel htmlFor='FileID'>Unique File ID: </FormLabel>
-     
-      <Input id="file_id" type="text" required   my={3}/>
+      <FormLabel htmlFor='FileID'>CollectionData: </FormLabel>
+      <Text><b>Name of collection</b>:{name}</Text>
+      <Text><b>Symbol of collection</b>:{symbol}</Text>
+      <Text><b>File ids array</b>:{file_ids}</Text>
       <Button type="submit" isDisabled={!currentAccount}>Create NFT!</Button>
     </FormControl>
     </form>
