@@ -116,8 +116,10 @@ typechain-types
 
 #Hardhat files
 cache
-artifacts
+#artifacts
 
+./build
+build
 
 node_modules
 .env
@@ -128,5 +130,5 @@ typechain-types
 
 #Hardhat files
 cache
-artifacts
+#artifacts
 
