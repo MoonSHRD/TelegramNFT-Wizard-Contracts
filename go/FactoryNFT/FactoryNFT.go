@@ -30,7 +30,7 @@ var (
 
 // FactoryNFTMetaData contains all meta data concerning the FactoryNFT contract.
 var FactoryNFTMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"singleton_collection\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"smbl_\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"file_ids\",\"type\":\"string[]\"}],\"name\":\"CreateCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"smbl_\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"file_ids\",\"type\":\"string[]\"}],\"name\":\"CreateCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasure_fund\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // FactoryNFTABI is the input ABI used to generate the binding from.
@@ -208,6 +208,37 @@ func (_FactoryNFT *FactoryNFTSession) Owner() (common.Address, error) {
 // Solidity: function owner() view returns(address)
 func (_FactoryNFT *FactoryNFTCallerSession) Owner() (common.Address, error) {
 	return _FactoryNFT.Contract.Owner(&_FactoryNFT.CallOpts)
+}
+
+// TreasureFund is a free data retrieval call binding the contract method 0xf9a4bb1e.
+//
+// Solidity: function treasure_fund() view returns(address)
+func (_FactoryNFT *FactoryNFTCaller) TreasureFund(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _FactoryNFT.contract.Call(opts, &out, "treasure_fund")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// TreasureFund is a free data retrieval call binding the contract method 0xf9a4bb1e.
+//
+// Solidity: function treasure_fund() view returns(address)
+func (_FactoryNFT *FactoryNFTSession) TreasureFund() (common.Address, error) {
+	return _FactoryNFT.Contract.TreasureFund(&_FactoryNFT.CallOpts)
+}
+
+// TreasureFund is a free data retrieval call binding the contract method 0xf9a4bb1e.
+//
+// Solidity: function treasure_fund() view returns(address)
+func (_FactoryNFT *FactoryNFTCallerSession) TreasureFund() (common.Address, error) {
+	return _FactoryNFT.Contract.TreasureFund(&_FactoryNFT.CallOpts)
 }
 
 // CreateCollection is a paid mutator transaction binding the contract method 0x0f1d60c9.
