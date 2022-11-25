@@ -29,6 +29,10 @@ contract SingletonNFT is ERC721URIStorage{
 
     }
 
+    function _baseURI() internal view virtual override returns (string memory) {
+        return "https://telegra.ph/file/";
+    }
+
 
     /**
      *  @dev create nft (single record in this contract) with provided file_id and returns token_id
