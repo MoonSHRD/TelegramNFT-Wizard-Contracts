@@ -80,11 +80,12 @@ export default function CreateCollectionTG(props:Props){
     <FormControl>
       <FormLabel htmlFor='FileID'>CollectionData: </FormLabel>
       <div>
-      <Input id="name" type="text" required onChange={(e) => setName(e.target.value)}><b>Name of collection</b>:{name}</Input>
-      <Input id="symbol" required onChange={(e) => setSymbol(e.target.value)}><b>Symbol of collection</b>:{symbol}</Input>
+      <Text><b>Name of collection</b>:{name}</Text>
+      <Text><b>Symbol of collection</b>:{symbol}</Text>
       <Text><b>File ids array</b>:{file_ids}</Text>
       </div>
       <Button type="submit" isDisabled={!currentAccount}>Create your own NFT Collection!</Button>
+
     </FormControl>
     </form>
   )

@@ -1,7 +1,7 @@
 import NextLink from "next/link"
 import { Flex, Button, useColorModeValue, Spacer, Heading, LinkBox, LinkOverlay } from '@chakra-ui/react'
 
-const siteTitle="DAO UI"
+const siteTitle="Telegram NFT Wizard"
 export default function Header() {
 
   return (
