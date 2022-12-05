@@ -98,14 +98,6 @@ const Home: NextPage = () => {
             currentAccount={currentAccount}
           />
         </Box> 
-        <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
-          <Heading my={4}  fontSize='xl'>Create New Collection</Heading>
-          <CreateCollectionTG 
-            addressContract='0xaB822DB04Ab32f4fAe8DaA54D5d5CE035065375b'
-            currentAccount={currentAccount}
-          />
-        </Box> 
-
 ...
       </VStack>
     </>
