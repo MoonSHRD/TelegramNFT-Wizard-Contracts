@@ -5,6 +5,7 @@ const siteTitle="Telegram NFT Wizard"
 export default function Header() {
 
   return (
+    
     <Flex as='header' bg={useColorModeValue('gray.100', 'gray.900')} p={4} alignItems='center'>
       <LinkBox>
         <NextLink href={'/'} passHref>
@@ -14,7 +15,7 @@ export default function Header() {
         </NextLink>
       </LinkBox>      
       <Spacer />
-      <Button >Button for Account </Button>
     </Flex>
+    
   )
 }

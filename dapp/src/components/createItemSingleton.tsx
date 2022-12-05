@@ -19,17 +19,25 @@ export default function CreateItemSingletonTG(props:Props){
   const addressContract = props.addressContract
   const currentAccount = props.currentAccount
 
-  var [file_id, setFileId] = useState<string|null>("")
+  var [file_id, setFileId] = useState<string>("")
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
 
 
+
+
+
+
   //var name = queryParams.get('user_tg_name');
   
   var file_id_param = queryParams.get('file_id');
-  var file_id_param_string = file_id_param?.toString
-  setFileId(file_id_param);
+  //let file_id_param_string = file_id_param?.toString
+  if (file_id_param != null) {
+    setFileId(file_id_param);
+  } else {
+    setFileId("");
+  }
 
   //setUserId(int_id);
   //setUserName(name);
@@ -42,7 +50,7 @@ export default function CreateItemSingletonTG(props:Props){
 
     async function createItemSingleton(event:React.FormEvent) {
     event.preventDefault()
-    if(!window.ethereum) return    
+   // if(!window.ethereum) return    
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const SingletonNFT:Contract = new ethers.Contract(addressContract, abi, signer)
@@ -59,7 +67,9 @@ export default function CreateItemSingletonTG(props:Props){
   //const handleChange = (value:string) => setUserId(value)
   //http://localhost:3000?user_tg_id=1337&user_tg_name=Alice
   return (
+    
     <form onSubmit={createItemSingleton}>
+      
     <FormControl>
       <FormLabel htmlFor='FileID'>Unique File ID: </FormLabel>
       <div>
@@ -67,6 +77,8 @@ export default function CreateItemSingletonTG(props:Props){
       </div>
       <Button type="submit" isDisabled={!currentAccount}>Create NFT!</Button>
     </FormControl>
+    
     </form>
+    
   )
 }

@@ -21,8 +21,8 @@ export default function CreateCollectionTG(props:Props){
   const currentAccount = props.currentAccount
 
   //var [file_id, setFileId] = useState<string|null>("")
-  var [name, setName] = useState<string|null>("")
-  var [symbol, setSymbol] = useState<string|null>("")
+  var [name, setName] = useState<string>("")
+  var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
   const router = useRouter();
   const x = router.query.file_id;
@@ -42,8 +42,13 @@ export default function CreateCollectionTG(props:Props){
 
   var name_q = queryParams.get('name');
   var symbol_q = queryParams.get('symbol');
-  setName(name_q);
-  setSymbol(symbol_q);
+  if(name_q != null){
+    setName(name_q);
+  }
+  if(symbol_q != null){
+    setSymbol(symbol_q);
+  }
+ 
 
   
   //var file_id_param = queryParams.get('file_id');
