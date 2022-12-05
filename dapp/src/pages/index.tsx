@@ -94,14 +94,14 @@ const Home: NextPage = () => {
         <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Add Item to Singelton collection</Heading>
           <CreateItemSingletonTG 
-            addressContract='0x2fA1Fea6C85A9ed066039334CAAE98F06A531CE9'
+            addressContract='0xEf087AaF882c22350ABc6A287563cE037AC46b06'
             currentAccount={currentAccount}
           />
         </Box> 
         <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Create New Collection</Heading>
           <CreateCollectionTG 
-            addressContract='0xaB822DB04Ab32f4fAe8DaA54D5d5CE035065375b'
+            addressContract='0x3d908DF3057fC6CE7c60e9Daf34B7e80F1B53479'
             currentAccount={currentAccount}
           />
         </Box> 
