@@ -15,6 +15,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract FactoryNFT is Ownable {
 
 
+event CollectionCreated(address indexed creator, address collection);
+
+// from creator to address
+mapping (address => address) public Collections ;
+
 address payable public treasure_fund;
 //address singleton_nft;
 
@@ -35,6 +40,7 @@ constructor() {
      */
     function CreateCollection(string memory name_, string memory smbl_, string[] memory file_ids) public returns (address) {
         address collection_address = address(new SampleNFT(name_,smbl_,file_ids,msg.sender));
+        emit CollectionCreated(msg.sender,collection_address);
         return collection_address;
     }
 

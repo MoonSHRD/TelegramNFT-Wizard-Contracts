@@ -30,7 +30,7 @@ var (
 
 // FactoryNFTMetaData contains all meta data concerning the FactoryNFT contract.
 var FactoryNFTMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"smbl_\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"file_ids\",\"type\":\"string[]\"}],\"name\":\"CreateCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasure_fund\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"collection\",\"type\":\"address\"}],\"name\":\"CollectionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"Collections\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"smbl_\",\"type\":\"string\"},{\"internalType\":\"string[]\",\"name\":\"file_ids\",\"type\":\"string[]\"}],\"name\":\"CreateCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasure_fund\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // FactoryNFTABI is the input ABI used to generate the binding from.
@@ -179,6 +179,37 @@ func (_FactoryNFT *FactoryNFTTransactorRaw) Transact(opts *bind.TransactOpts, me
 	return _FactoryNFT.Contract.contract.Transact(opts, method, params...)
 }
 
+// Collections is a free data retrieval call binding the contract method 0x144ee425.
+//
+// Solidity: function Collections(address ) view returns(address)
+func (_FactoryNFT *FactoryNFTCaller) Collections(opts *bind.CallOpts, arg0 common.Address) (common.Address, error) {
+	var out []interface{}
+	err := _FactoryNFT.contract.Call(opts, &out, "Collections", arg0)
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// Collections is a free data retrieval call binding the contract method 0x144ee425.
+//
+// Solidity: function Collections(address ) view returns(address)
+func (_FactoryNFT *FactoryNFTSession) Collections(arg0 common.Address) (common.Address, error) {
+	return _FactoryNFT.Contract.Collections(&_FactoryNFT.CallOpts, arg0)
+}
+
+// Collections is a free data retrieval call binding the contract method 0x144ee425.
+//
+// Solidity: function Collections(address ) view returns(address)
+func (_FactoryNFT *FactoryNFTCallerSession) Collections(arg0 common.Address) (common.Address, error) {
+	return _FactoryNFT.Contract.Collections(&_FactoryNFT.CallOpts, arg0)
+}
+
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
@@ -302,6 +333,151 @@ func (_FactoryNFT *FactoryNFTSession) TransferOwnership(newOwner common.Address)
 // Solidity: function transferOwnership(address newOwner) returns()
 func (_FactoryNFT *FactoryNFTTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
 	return _FactoryNFT.Contract.TransferOwnership(&_FactoryNFT.TransactOpts, newOwner)
+}
+
+// FactoryNFTCollectionCreatedIterator is returned from FilterCollectionCreated and is used to iterate over the raw logs and unpacked data for CollectionCreated events raised by the FactoryNFT contract.
+type FactoryNFTCollectionCreatedIterator struct {
+	Event *FactoryNFTCollectionCreated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *FactoryNFTCollectionCreatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(FactoryNFTCollectionCreated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(FactoryNFTCollectionCreated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *FactoryNFTCollectionCreatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *FactoryNFTCollectionCreatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// FactoryNFTCollectionCreated represents a CollectionCreated event raised by the FactoryNFT contract.
+type FactoryNFTCollectionCreated struct {
+	Creator    common.Address
+	Collection common.Address
+	Raw        types.Log // Blockchain specific contextual infos
+}
+
+// FilterCollectionCreated is a free log retrieval operation binding the contract event 0x5d0de243db1669e3a7056744cd715c625f0c1c348736c2c2d53d0ddebff1a6c7.
+//
+// Solidity: event CollectionCreated(address indexed creator, address collection)
+func (_FactoryNFT *FactoryNFTFilterer) FilterCollectionCreated(opts *bind.FilterOpts, creator []common.Address) (*FactoryNFTCollectionCreatedIterator, error) {
+
+	var creatorRule []interface{}
+	for _, creatorItem := range creator {
+		creatorRule = append(creatorRule, creatorItem)
+	}
+
+	logs, sub, err := _FactoryNFT.contract.FilterLogs(opts, "CollectionCreated", creatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return &FactoryNFTCollectionCreatedIterator{contract: _FactoryNFT.contract, event: "CollectionCreated", logs: logs, sub: sub}, nil
+}
+
+// WatchCollectionCreated is a free log subscription operation binding the contract event 0x5d0de243db1669e3a7056744cd715c625f0c1c348736c2c2d53d0ddebff1a6c7.
+//
+// Solidity: event CollectionCreated(address indexed creator, address collection)
+func (_FactoryNFT *FactoryNFTFilterer) WatchCollectionCreated(opts *bind.WatchOpts, sink chan<- *FactoryNFTCollectionCreated, creator []common.Address) (event.Subscription, error) {
+
+	var creatorRule []interface{}
+	for _, creatorItem := range creator {
+		creatorRule = append(creatorRule, creatorItem)
+	}
+
+	logs, sub, err := _FactoryNFT.contract.WatchLogs(opts, "CollectionCreated", creatorRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(FactoryNFTCollectionCreated)
+				if err := _FactoryNFT.contract.UnpackLog(event, "CollectionCreated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseCollectionCreated is a log parse operation binding the contract event 0x5d0de243db1669e3a7056744cd715c625f0c1c348736c2c2d53d0ddebff1a6c7.
+//
+// Solidity: event CollectionCreated(address indexed creator, address collection)
+func (_FactoryNFT *FactoryNFTFilterer) ParseCollectionCreated(log types.Log) (*FactoryNFTCollectionCreated, error) {
+	event := new(FactoryNFTCollectionCreated)
+	if err := _FactoryNFT.contract.UnpackLog(event, "CollectionCreated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
 }
 
 // FactoryNFTOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the FactoryNFT contract.

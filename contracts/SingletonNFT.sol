@@ -5,20 +5,21 @@ pragma solidity ^0.8.0;
 // in-direct imports
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-//import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 
 // direct imports
 //import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 //import "../node_modules/@openzeppelin/contracts/utils/Counters.sol";
+//import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 
 /**
  *  Singleton NFT
  *  Each file is a record inside this single contract
  */
-contract SingletonNFT is ERC721URIStorage{
+contract SingletonNFT is ERC721URIStorage, Ownable{
 
     using Counters for Counters.Counter;
     Counters.Counter token_ids_count;
