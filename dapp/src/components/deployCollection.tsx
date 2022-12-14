@@ -24,21 +24,47 @@ export default function CreateCollectionTG(props:Props){
   var [name, setName] = useState<string>("")
   var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
-  const router = useRouter();
-  const x = router.query.file_id;
+  var x : string[];
 
-  if (Array.isArray(x)) {
-      setFileIds(x);
-  }
 
+  http://localhost:3000/createcollection?item_count=10&file_id='first'&file_id1='second'
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
+    var numbersOfItems = queryParams.get('item_count');
 
 
-  //var id = queryParams.get('user_tg_id');   // get id as string from query
-  //let int_id : number = +id;                // similar to parseInt()
-  //var name = queryParams.get('user_tg_name');
+
+
+
+
+    
+    var count : number;
+    var file_id_param = queryParams.get('file_id');
+    //let file_id_param_string = file_id_param?.toString
+    if (file_id_param != null) {
+      x.push(file_id_param);
+      //count = x.push(file_id_param);
+      for (let numbersOfItems = 1; numbersOfItems < numbersOfItems - 1; numbersOfItems++) {
+       // const element = array[numbersOfItems];
+       var uri = queryParams.get('file_id' + numbersOfItems);
+       console.log("uri: " + uri);
+       x.push(uri);
+       
+        
+      }
+      //setFileId(file_id_param);
+    } else {
+     // setFileIds("");
+    }
+  
+  
+    
+    if (Array.isArray(x)) {
+        setFileIds(x);
+    }
+    
+
 
   var name_q = queryParams.get('name');
   var symbol_q = queryParams.get('symbol');
@@ -79,7 +105,7 @@ export default function CreateCollectionTG(props:Props){
 
   
   //const handleChange = (value:string) => setUserId(value)
-  //http://localhost:3000?user_tg_id=1337&user_tg_name=Alice
+
   return (
     <form onSubmit={createCollection}>
     <FormControl>
