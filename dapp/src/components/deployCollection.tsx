@@ -84,7 +84,7 @@ export default function CreateCollectionTG(props:Props){
         query = "file_id";
         console.log("query: ", query);
       } else {
-      query = "file_id" + jstr;
+      query = "file_id" + istr;
       console.log("query: ", query);
       }
       
