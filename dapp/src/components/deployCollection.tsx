@@ -73,10 +73,10 @@ export default function CreateCollectionTG(props:Props){
     count = parseInt(numbersOfItems);
     console.log("item_total: ", count);
     
-    for (let i = 0; i << count; i++) {
+    for (let i = 0; i <= count - 1; i++) {
      // var uri : string;
-      //var j = i + 1;
-      //var jstr = j;
+      var j = i + 1;
+      var jstr = j;
       var istr = i;
      // console.log("jstr:", jstr);
       var query : string;
@@ -84,7 +84,7 @@ export default function CreateCollectionTG(props:Props){
         query = "file_id";
         console.log("query: ", query);
       } else {
-      query = "file_id" + istr;
+      query = "file_id" + jstr;
       console.log("query: ", query);
       }
       
