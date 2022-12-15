@@ -25,60 +25,23 @@ export default function CreateCollectionTG(props:Props){
   var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
   var [file_id, setFileId] = useState<string>("")
-  /*
-  var [file_id1,setFileId1] = useState<string>("")
-  var [file_id2,setFileId2] = useState<string>("")
-  var [file_id3,setFileId3] = useState<string>("")
-  var [file_id4,setFileId4] = useState<string>("")
-  var [file_id5,setFileId5] = useState<string>("")
-  var [file_id6,setFileId6] = useState<string>("")
-  var [file_id7,setFileId7] = useState<string>("")
-  var [file_id8,setFileId8] = useState<string>("")
-  var [file_id9,setFileId9] = useState<string>("")
-  */
   var x : string[] = [];
 
 
-  http://localhost:3000/createcollection?item_count=2&file_id='first'&file_id1='second'
+  //http://localhost:3000/createcollection?item_count=2&file_id="first"&file_id1="second"&name="name_of_collection"&symbol="EMOJI"
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
     var numbersOfItems = queryParams.get('item_count');
-
-
     var file_id_param = queryParams.get('file_id');
-   // var file_id_param_string = file_id_param?.toString
     setFileId(file_id_param);
-    /*
-    var q1 = queryParams.get('file_id1')?.toString;
-    var q2 = queryParams.get('file_id2')?.toString;
-    var q3 = queryParams.get('file_id3')?.toString;
-    var q4 = queryParams.get('file_id4')?.toString;
-    var q5 = queryParams.get('file_id5')?.toString;
-    var q6 = queryParams.get('file_id6')?.toString;
-    var q7 = queryParams.get('file_id7')?.toString;
-    var q8 = queryParams.get('file_id8')?.toString;
-    var q9 = queryParams.get('file_id9')?.toString;
-   */
-    
   
-   // x.push(file_id);
-   
-
-
-
-
-    
     var count : number;
     count = parseInt(numbersOfItems);
     console.log("item_total: ", count);
     
     for (let i = 0; i <= count - 1; i++) {
-     // var uri : string;
-      var j = i + 1;
-      var jstr = j;
       var istr = i;
-     // console.log("jstr:", jstr);
       var query : string;
       if (i == 0) {
         query = "file_id";
@@ -89,14 +52,11 @@ export default function CreateCollectionTG(props:Props){
       }
       
       
-      
        var request_q = queryParams.get(query);
         console.log("request_q: " + request_q);
         var result = request_q;
         console.log("result: ", result);
-        
         x[i] = result;
-      
     }
 
     if (Array.isArray(x)) {
@@ -134,14 +94,14 @@ export default function CreateCollectionTG(props:Props){
     FactoryNFT.CreateCollection()
      .then((tr: TransactionResponse) => {
         console.log(`TransactionResponse TX hash: ${tr.hash}`)
-        tr.wait().then((receipt:TransactionReceipt) => {console.log("create item receipt", receipt)})
+        tr.wait().then((receipt:TransactionReceipt) => {console.log("create COLLECTION receipt", receipt)})
         })
          .catch((e:Error) => console.log(e))
     }
 
 
   
-  //const handleChange = (value:string) => setUserId(value)
+
 
   return (
     <form onSubmit={createCollection}>
