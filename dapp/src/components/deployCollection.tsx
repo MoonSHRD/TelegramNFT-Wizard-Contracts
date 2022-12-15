@@ -40,26 +40,21 @@ export default function CreateCollectionTG(props:Props){
 
     
     var count : number;
-    var file_id_param = queryParams.get('file_id');
-    //let file_id_param_string = file_id_param?.toString
-    if (file_id_param != null) {
-      x.push(file_id_param);
-      //count = x.push(file_id_param);
-      for (let numbersOfItems = 1; numbersOfItems < numbersOfItems - 1; numbersOfItems++) {
-       // const element = array[numbersOfItems];
-       var uri = queryParams.get('file_id' + numbersOfItems);
-       console.log("uri: " + uri);
-       x.push(uri);
-       
-        
-      }
-      //setFileId(file_id_param);
-    } else {
-     // setFileIds("");
-    }
-  
-  
+    count = parseInt(numbersOfItems);
+    console.log("item_total: ", count);
     
+    for (let i = 0; i < count; i++) {
+      var uri : string;
+      if (i = 0) {
+        var file_id_param = queryParams.get('file_id');
+        x.push(file_id_param);
+      } else {
+        uri = queryParams.get('file_id' + numbersOfItems);
+        console.log("uri: " + uri);
+        x.push(uri);
+      }
+    }
+
     if (Array.isArray(x)) {
         setFileIds(x);
     }
