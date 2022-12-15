@@ -73,7 +73,7 @@ export default function CreateCollectionTG(props:Props){
     count = parseInt(numbersOfItems);
     console.log("item_total: ", count);
     
-    for (let i = 0; i <= count; i++) {
+    for (let i = 0; i << count; i++) {
      // var uri : string;
       //var j = i + 1;
       //var jstr = j;
