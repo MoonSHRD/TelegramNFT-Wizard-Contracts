@@ -39,7 +39,7 @@ export default function CreateCollectionTG(props:Props){
   var x : string[] = [];
 
 
-  http://localhost:3000/createcollection?item_count="2"&file_id='first'&file_id1='second'
+  http://localhost:3000/createcollection?item_count=2&file_id='first'&file_id1='second'
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
@@ -48,7 +48,7 @@ export default function CreateCollectionTG(props:Props){
 
     var file_id_param = queryParams.get('file_id');
     var file_id_param_string = file_id_param?.toString
-    setFileId(file_id_param);
+    setFileId(file_id_param_string);
     /*
     var q1 = queryParams.get('file_id1')?.toString;
     var q2 = queryParams.get('file_id2')?.toString;
@@ -75,7 +75,7 @@ export default function CreateCollectionTG(props:Props){
     
     for (let i = 1; i <= count; i++) {
      // var uri : string;
-      var istr = i.toString;
+      var istr = i;
       console.log("istr:", istr);
       var query = "file_id" + istr;
       console.log("query: ", query);
