@@ -47,8 +47,8 @@ export default function CreateCollectionTG(props:Props){
 
 
     var file_id_param = queryParams.get('file_id');
-    var file_id_param_string = file_id_param?.toString
-    setFileId(file_id_param_string);
+   // var file_id_param_string = file_id_param?.toString
+    setFileId(file_id_param);
     /*
     var q1 = queryParams.get('file_id1')?.toString;
     var q2 = queryParams.get('file_id2')?.toString;
