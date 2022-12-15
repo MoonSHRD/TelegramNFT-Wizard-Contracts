@@ -95,7 +95,7 @@ export default function CreateCollectionTG(props:Props){
         var result = request_q;
         console.log("result: ", result);
         
-      //  x[i] = result;
+        x[i] = result;
       
     }
 
