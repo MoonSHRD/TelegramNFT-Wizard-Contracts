@@ -24,7 +24,7 @@ export default function CreateCollectionTG(props:Props){
   var [name, setName] = useState<string>("")
   var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
-  var x : string[];
+  var x : string[] = [];
 
 
   http://localhost:3000/createcollection?item_count=10&file_id='first'&file_id1='second'
