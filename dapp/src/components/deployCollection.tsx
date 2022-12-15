@@ -24,6 +24,16 @@ export default function CreateCollectionTG(props:Props){
   var [name, setName] = useState<string>("")
   var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
+  var [file_id, setFileId] = useState<string>("")
+  var [file_id1,setFileId1] = useState<string>("")
+  var [file_id2,setFileId2] = useState<string>("")
+  var [file_id3,setFileId3] = useState<string>("")
+  var [file_id4,setFileId4] = useState<string>("")
+  var [file_id5,setFileId5] = useState<string>("")
+  var [file_id6,setFileId6] = useState<string>("")
+  var [file_id7,setFileId7] = useState<string>("")
+  var [file_id8,setFileId8] = useState<string>("")
+  var [file_id9,setFileId9] = useState<string>("")
   var x : string[] = [];
 
 
@@ -34,6 +44,23 @@ export default function CreateCollectionTG(props:Props){
     var numbersOfItems = queryParams.get('item_count');
 
 
+    var file_id_param = queryParams.get('file_id');
+    var file_id_param_string = file_id_param?.toString
+    setFileId(file_id_param);
+    var q1 = queryParams.get('file_id1')?.toString;
+    var q2 = queryParams.get('file_id2')?.toString;
+    var q3 = queryParams.get('file_id3')?.toString;
+    var q4 = queryParams.get('file_id4')?.toString;
+    var q5 = queryParams.get('file_id5')?.toString;
+    var q6 = queryParams.get('file_id6')?.toString;
+    var q7 = queryParams.get('file_id7')?.toString;
+    var q8 = queryParams.get('file_id8')?.toString;
+    var q9 = queryParams.get('file_id9')?.toString;
+    setFileId1(q1);
+    
+  
+    x.push(file_id);
+   
 
 
 
@@ -43,16 +70,13 @@ export default function CreateCollectionTG(props:Props){
     count = parseInt(numbersOfItems);
     console.log("item_total: ", count);
     
-    for (let i = 0; i < count; i++) {
-      var uri : string;
-      if (i = 0) {
-        var file_id_param = queryParams.get('file_id');
-        x.push(file_id_param);
-      } else {
-        uri = queryParams.get('file_id' + numbersOfItems);
+    for (let i = 1; i <= count; i++) {
+     // var uri : string;
+      var istr = i.toString;
+       var uri = queryParams.get('file_id' + istr);
         console.log("uri: " + uri);
         x.push(uri);
-      }
+      
     }
 
     if (Array.isArray(x)) {
@@ -72,9 +96,7 @@ export default function CreateCollectionTG(props:Props){
  
 
   
-  //var file_id_param = queryParams.get('file_id');
-  //var file_id_param_string = file_id_param?.toString
-  //setFileId(file_id_param);
+
 
   
   }, []);
