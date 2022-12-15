@@ -93,7 +93,9 @@ export default function CreateCollectionTG(props:Props){
        var request_q = queryParams.get(query);
         console.log("request_q: " + request_q);
         var result = request_q;
-        x[i] = result;
+        console.log("result: ", result);
+        
+      //  x[i] = result;
       
     }
 
