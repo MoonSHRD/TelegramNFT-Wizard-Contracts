@@ -25,6 +25,7 @@ export default function CreateCollectionTG(props:Props){
   var [symbol, setSymbol] = useState<string>("")
   var [file_ids, setFileIds] = useState<string[]>()
   var [file_id, setFileId] = useState<string>("")
+  /*
   var [file_id1,setFileId1] = useState<string>("")
   var [file_id2,setFileId2] = useState<string>("")
   var [file_id3,setFileId3] = useState<string>("")
@@ -34,10 +35,11 @@ export default function CreateCollectionTG(props:Props){
   var [file_id7,setFileId7] = useState<string>("")
   var [file_id8,setFileId8] = useState<string>("")
   var [file_id9,setFileId9] = useState<string>("")
+  */
   var x : string[] = [];
 
 
-  http://localhost:3000/createcollection?item_count=10&file_id='first'&file_id1='second'
+  http://localhost:3000/createcollection?item_count="2"&file_id='first'&file_id1='second'
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
@@ -47,6 +49,7 @@ export default function CreateCollectionTG(props:Props){
     var file_id_param = queryParams.get('file_id');
     var file_id_param_string = file_id_param?.toString
     setFileId(file_id_param);
+    /*
     var q1 = queryParams.get('file_id1')?.toString;
     var q2 = queryParams.get('file_id2')?.toString;
     var q3 = queryParams.get('file_id3')?.toString;
@@ -56,7 +59,7 @@ export default function CreateCollectionTG(props:Props){
     var q7 = queryParams.get('file_id7')?.toString;
     var q8 = queryParams.get('file_id8')?.toString;
     var q9 = queryParams.get('file_id9')?.toString;
-    setFileId1(q1);
+   */
     
   
     x.push(file_id);
@@ -73,9 +76,15 @@ export default function CreateCollectionTG(props:Props){
     for (let i = 1; i <= count; i++) {
      // var uri : string;
       var istr = i.toString;
-       var uri = queryParams.get('file_id' + istr);
-        console.log("uri: " + uri);
-        x.push(uri);
+      console.log("istr:", istr);
+      var query = "file_id" + istr;
+      console.log("query: ", query);
+      
+      
+       var request_q = queryParams.get(query);
+        console.log("request_q: " + request_q);
+        var result = request_q;
+        x[i] = result;
       
     }
 
