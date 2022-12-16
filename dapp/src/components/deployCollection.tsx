@@ -28,7 +28,8 @@ export default function CreateCollectionTG(props:Props){
   var x : string[] = [];
 
 
-  //http://localhost:3000/createcollection?item_count=2&file_id="first"&file_id1="second"&name="name_of_collection"&symbol="EMOJI"
+  // TODO: can we offer 
+  //http://localhost:3000/createcollection?item_count=2&file_id=first&file_id1=second&name="name_of_collection"&symbol=👾
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     
@@ -91,7 +92,7 @@ export default function CreateCollectionTG(props:Props){
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const FactoryNFT:Contract = new ethers.Contract(addressContract, abi, signer)
-    FactoryNFT.CreateCollection()
+    FactoryNFT.CreateCollection(name,symbol,x)
      .then((tr: TransactionResponse) => {
         console.log(`TransactionResponse TX hash: ${tr.hash}`)
         tr.wait().then((receipt:TransactionReceipt) => {console.log("create COLLECTION receipt", receipt)})
