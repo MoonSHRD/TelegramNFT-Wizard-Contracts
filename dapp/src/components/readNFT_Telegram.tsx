@@ -39,7 +39,7 @@ export default function ReadNFT_Telegram(props:Props){
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const ERCMeta = new ethers.Contract(addressContract, abi, provider);
-    ERCMeta.tokenURI(token_id).then((result:string)=>{
+    ERCMeta.tokenURI(token_id_n).then((result:string)=>{
         console.log("uri:");
         
         console.log(result);
