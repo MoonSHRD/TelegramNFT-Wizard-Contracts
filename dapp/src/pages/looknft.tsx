@@ -71,7 +71,7 @@ const Home: NextPage = () => {
         <title>NFT Wizard</title>
       </Head>
 
-      <Heading as="h3"  my={4}>Create NFT</Heading>          
+      <Heading as="h3"  my={4}>Look Up NFT</Heading>          
       <VStack>
         <Box w='100%' my={4}>
         {currentAccount  
