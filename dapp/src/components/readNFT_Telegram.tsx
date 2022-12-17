@@ -28,7 +28,11 @@ export default function ReadNFT_Telegram(props:Props){
     const queryParams = new URLSearchParams(location.search);
 
     var token_id_q = queryParams.get('token_id'); // 
+    console.log("token_id_q: ", token_id_q);
+    
     let token_id_n  = parseInt(token_id_q);
+    console.log("token_id_n: ", token_id_n);
+    
     setTokenId(token_id_n);
     console.log("token id: ", token_id);
     
