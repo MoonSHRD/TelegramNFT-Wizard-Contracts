@@ -94,7 +94,7 @@ const Home: NextPage = () => {
         <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Add Item to Singelton collection</Heading>
           <CreateItemSingletonTG 
-            addressContract='0xEf087AaF882c22350ABc6A287563cE037AC46b06'
+            addressContract='0x36Ed9bc9473F1316ec15BCca45f49f4481A63c5e'
             currentAccount={currentAccount}
           />
         </Box> 
