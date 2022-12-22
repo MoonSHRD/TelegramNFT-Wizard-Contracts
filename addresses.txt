@@ -1,3 +1,7 @@
-Singleton Collection deployed to: 0x36Ed9bc9473F1316ec15BCca45f49f4481A63c5e
-Factory NFT deployed to: 0xd2026ff372E52d1961276313dC4e3d202995c3Ef
+polygon
+
+Singleton Collection deployed to: 0xEbE648689E98abA446e38621E5a3491db03a7621
+Factory NFT deployed to: 0xd8bD8B58Ad057a2D7dC835cDE41397151490dA79
+
+
 

@@ -21,22 +21,13 @@ async function main() {
 
   console.log(hre.network.name);
 
-  /*
-  console.log(ethers.utils.formatEther(balance), "ETH");
+  
   let owner;
   owner = await hre.ethers.getSigner();
   console.log("owner address:", owner.address);
-
-
-  //let murs_account = ethers.utils.getAddress("0x383A9e83E36796106EaC11E8c2Fbe8b92Ff46D3a");
-  //let account_owner = await hre.ethers.getSigner();
   const balance = await ethers.provider.getBalance(owner.address);
-*/
+  console.log(ethers.utils.formatEther(balance), "ETH");
   
-
-
-
-
 
   // We get the contract to deploy
   const SingletonNFT = await hre.ethers.getContractFactory("SingletonNFT");
@@ -49,8 +40,6 @@ async function main() {
   const factory = await FactoryNFT.deploy();
   await factory.deployed();
   console.log("Factory NFT deployed to:", factory.address);
-
-
 }
 
 
