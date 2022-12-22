@@ -24,7 +24,7 @@ contract SingletonNFT is ERC721URIStorage, Ownable{
     using Counters for Counters.Counter;
     Counters.Counter token_ids_count;
 
-    event ItemCreated (string file_id, uint256 token_id);
+    event ItemCreated (string indexed file_id, uint256 token_id);
 
     constructor(string memory name_, string memory smbl_) ERC721(name_, smbl_) ERC721URIStorage() {
 
