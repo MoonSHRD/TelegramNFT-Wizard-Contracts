@@ -94,7 +94,7 @@ const Home: NextPage = () => {
         <Box  mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Create New Collection</Heading>
           <CreateCollectionTG 
-            addressContract='0xd2026ff372E52d1961276313dC4e3d202995c3Ef'
+            addressContract='0xd8bD8B58Ad057a2D7dC835cDE41397151490dA79'
             currentAccount={currentAccount}
           />
         </Box> 
