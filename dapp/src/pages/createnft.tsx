@@ -21,13 +21,27 @@ const Home: NextPage = () => {
     if(!currentAccount || !ethers.utils.isAddress(currentAccount)) return
     //client side code
     if(!window.ethereum) return
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
+    provider.on("network", (newNetwork, oldNetwork) => {
+      // When a Provider makes its initial connection, it emits a "network"
+      // event with a null oldNetwork along with the newNetwork. So, if the
+      // oldNetwork exists, it represents a changing network
+      if (oldNetwork) {
+          window.location.reload();
+      }
+    });
+
+    provider.getNetwork().then((result)=>{
+      if (result.chainId != 137) {
+        addPolygonNetwork()
+      } else {
+        setChainId(result.chainId)
+        setChainName(result.name)
+      }
+    })
+
     provider.getBalance(currentAccount).then((result)=>{
       setBalance(ethers.utils.formatEther(result))
-    })
-    provider.getNetwork().then((result)=>{
-      setChainId(result.chainId)
-      setChainName(result.name)
     })
 
   },[currentAccount])
@@ -63,6 +77,32 @@ const Home: NextPage = () => {
     console.log("onClickDisConnect")
     setBalance(undefined)
     setCurrentAccount(undefined)
+  }
+
+  const addPolygonNetwork = () => {
+    window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [{
+          chainId: "0x89",
+          rpcUrls: ["https://polygon-rpc.com/"],
+          chainName: "Matic Mainnet",
+          nativeCurrency: {
+              name: "MATIC",
+              symbol: "MATIC",
+              decimals: 18
+          },
+          blockExplorerUrls: ["https://explorer.matic.network"]
+      }]
+  });
+  }
+
+  const switchToPolygon = () => {
+    window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{
+          chainId: "0x89"
+      }]
+  });
   }
 
   return (
