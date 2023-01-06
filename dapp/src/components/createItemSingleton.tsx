@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Button, Input , NumberInput,  NumberInputField,  FormControl,  FormLabel, Text } from '@chakra-ui/react'
+import {Button, Input , NumberInput,  NumberInputField,  FormControl,  FormLabel, Text, Image } from '@chakra-ui/react'
 import {ethers} from 'ethers'
 import {parseEther } from 'ethers/lib/utils'
 import {abi} from '../../../artifacts/contracts/SingletonNFT.sol/SingletonNFT.json'
@@ -18,6 +18,8 @@ declare let window: any;
 export default function CreateItemSingletonTG(props:Props){
   const addressContract = props.addressContract
   const currentAccount = props.currentAccount
+  const base_uri = "telegra.ph/file/"
+  var [uri,setUri] = useState<string>("")
 
   var [file_id, setFileId] = useState<string>("")
 
@@ -35,6 +37,8 @@ export default function CreateItemSingletonTG(props:Props){
   //let file_id_param_string = file_id_param?.toString
   if (file_id_param != null) {
     setFileId(file_id_param);
+    var uri_c = base_uri + file_id
+    setUri(uri_c)
   } else {
     setFileId("");
   }
@@ -75,6 +79,7 @@ export default function CreateItemSingletonTG(props:Props){
       <div>
       <Text><b>Unique File id</b>:{file_id}</Text>
       </div>
+      <Image src={uri}></Image>
       <Button type="submit" isDisabled={!currentAccount}>Create NFT!</Button>
     </FormControl>
     
