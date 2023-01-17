@@ -18,7 +18,7 @@ declare let window: any;
 export default function CreateItemSingletonTG(props:Props){
   const addressContract = props.addressContract
   const currentAccount = props.currentAccount
-  const base_uri = "telegra.ph/file/"
+  const base_uri = "https://telegra.ph/file/"
   var [uri,setUri] = useState<string>("")
 
   var [file_id, setFileId] = useState<string>("")
@@ -40,7 +40,10 @@ export default function CreateItemSingletonTG(props:Props){
     var uri_c = base_uri + file_id
     setUri(uri_c)
     console.log("base uri is: ", base_uri);
+    console.log("file_id_param is: ", file_id_param);
     console.log("file id is: ", file_id);
+    console.log("uri_c is: ", uri_c);
+    
     console.log("uri is: ", uri);
     
     
