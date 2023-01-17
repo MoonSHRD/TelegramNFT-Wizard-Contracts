@@ -39,6 +39,12 @@ export default function CreateItemSingletonTG(props:Props){
     setFileId(file_id_param);
     var uri_c = base_uri + file_id
     setUri(uri_c)
+    console.log("base uri is: ", base_uri);
+    console.log("file id is: ", file_id);
+    console.log("uri is: ", uri);
+    
+    
+    
   } else {
     setFileId("");
   }
