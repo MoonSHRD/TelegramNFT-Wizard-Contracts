@@ -37,7 +37,7 @@ export default function CreateItemSingletonTG(props:Props){
   //let file_id_param_string = file_id_param?.toString
   if (file_id_param != null) {
     setFileId(file_id_param);
-    var uri_c = base_uri + file_id
+    var uri_c = base_uri + file_id_param;
     setUri(uri_c)
     console.log("base uri is: ", base_uri);
     console.log("file_id_param is: ", file_id_param);
